@@ -19,14 +19,18 @@ function getCustomizedMenu() {
     "button": [
       {
         "type": "click",
-        "name": "What's new",
+        "name": "Display Order",
         "key": `new`
       },
       {
         "type": "click",
-        "name": "Need support",
-        "key": `support`
-      }]
+        "name": "Create Order",
+        "key": `create`
+      },{
+				 "type": "click",
+				 "name": "Bind user",
+				 "key": `user`	
+			}]
   };
 }
 
@@ -114,7 +118,7 @@ router.post('/menu', function (req, res, next) {
       json: menu
     }, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        res.send({ body });
+        res.send({ body, status: 'success' });
       }
       else {
         res.send({ message: 'Failed to create customized menu', body });
