@@ -3,8 +3,8 @@ const home = process.env.location === 'home';
 module.exports = {
   secret: {
     token: 'wechat123456',
-    appid: 'wxe0e8589198988d33',
-    secret: '737017fbd14e5e31330cec438f59f00a',
+    appid: 'wx8ebaaf46e5f6295e',
+    secret: '107f52be408d8de3b4d8d0a9f41d8513',
     encodingAESKey: 'qKZrS7ClCedpfB8ovtIXaOUlnUyd4JhDH44v3STxPyq'
   },
   server: 'http://118.24.149.237',
