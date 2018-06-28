@@ -8,7 +8,7 @@ module.exports = {
     encodingAESKey: 'qKZrS7ClCedpfB8ovtIXaOUlnUyd4JhDH44v3STxPyq'
   },
   server: 'http://118.24.149.237',
-  excelsiorServer: home ? 'http://10.0.1.20:8081' : 'http://10.59.182.220:8081',
+  uiServer: home ? 'http://10.130.231.80' : 'http://118.24.149.237',
   templates: {
     Featured: '04zVisr--LdimrcGC6qNbExIkUyrn0e3tAYQRbrtvF8',
     NewBlog: 'ZKAOh-mi-r-SV7cHjxJQEyt1UUWgXD8VRyAMvV_KJCQ',
