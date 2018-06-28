@@ -18,19 +18,23 @@ function getCustomizedMenu() {
   return {
     "button": [
       {
-        "type": "click",
-        "name": "Display Order",
-        "key": `new`
+        "type": "view",
+        "name": "Create Sales Order",
+        "key": `${config.uiServer}#/create`
       },
       {
-        "type": "click",
-        "name": "Create Order",
-        "key": `create`
-      },{
-				 "type": "click",
-				 "name": "Bind user",
-				 "key": `user`	
-			}]
+        "name": "More",
+        "sub_button" : [{
+          "type": "click",
+          "name": "Bind user",
+          "key": `user`	
+        },{
+          "type": "clike",
+          "name": "Display Order",
+          "key" : "display"
+        }]
+      }
+    ]
   };
 }
 
