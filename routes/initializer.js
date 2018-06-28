@@ -20,7 +20,7 @@ function getCustomizedMenu() {
       {
         "type": "view",
         "name": "Create Sales Order",
-        "key": `${config.uiServer}#/create`
+        "url": `${config.uiServer}#/create`
       },
       {
         "name": "More",
