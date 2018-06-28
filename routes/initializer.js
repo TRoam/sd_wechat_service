@@ -17,24 +17,32 @@ const mediaNewsStore = new store(path.join(__dirname, '../data/media-news.txt'))
 function getCustomizedMenu() {
   return {
     "button": [
-      {
-        "type": "view",
-        "name": "Create Sales Order",
-        "url": `${config.uiServer}#/create`
-      },
-      {
-        "name": "More",
-        "sub_button" : [{
-          "type": "click",
-          "name": "Bind user",
-          "key": `user`	
-        },{
-          "type": "clike",
-          "name": "Display Order",
-          "key" : "display"
-        }]
-      }
-    ]
+        {
+            "type": "view", 
+            "name": "Create Sales Order", 
+            "url": `${config.uiServer}#/create`
+        }, 
+        {
+            "name": "More", 
+            "sub_button": [
+                {
+                    "type": "click", 
+                    "name": "Authorization Bing", 
+                    "key": "user"
+                }, 
+                {
+                    "type": "click", 
+                    "name": "Display Order", 
+                    "key": "display"
+                },
+                {
+                  "type": "click",
+                  "name": "Change Order",
+                  "key": "change"
+                }
+            ]
+        }
+     ]
   };
 }
 
