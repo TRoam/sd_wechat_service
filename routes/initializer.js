@@ -20,8 +20,8 @@ function getCustomizedMenu() {
         {
             "type": "view", 
             "name": "Create Sales Order", 
-            "url": `${config.uiServer}#/create`
-        }, 
+            "url": `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8ebaaf46e5f6295e&redirect_uri=http://118.24.149.237:8080&response_type=code&scope=snsapi_base&state=create#wechat_redirect`
+        },
         {
             "name": "More", 
             "sub_button": [

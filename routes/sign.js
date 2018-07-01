@@ -22,4 +22,8 @@ router.get("/jsapi-ticket", function (req, res, next) {
   });
 });
 
+router.post('/openId', function(req, res, next) {
+  
+});
+
 module.exports = router;
