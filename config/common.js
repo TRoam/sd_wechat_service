@@ -8,7 +8,7 @@ module.exports = {
     encodingAESKey: 'qKZrS7ClCedpfB8ovtIXaOUlnUyd4JhDH44v3STxPyq'
   },
   server: 'http://www.chengdusa.com',
-  uiServer: home ? 'http://10.130.231.80' : 'http://www.chengdusa.com:8080',
+  uiServer: 'http://ui.chengdusa.com',
   templates: {
     Featured: '04zVisr--LdimrcGC6qNbExIkUyrn0e3tAYQRbrtvF8',
     NewBlog: 'ZKAOh-mi-r-SV7cHjxJQEyt1UUWgXD8VRyAMvV_KJCQ',
