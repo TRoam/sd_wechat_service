@@ -22,8 +22,12 @@ router.get("/jsapi-ticket", function (req, res, next) {
   });
 });
 
-router.post('/openId', function(req, res, next) {
-  
+router.post('/open-id', function(req, res, next) {
+  console.log(req.body);
+  const code = req.body.Code
+  accessTokenHelper.getOpenIdByCode(code, openId => {
+    res.send(openId);
+  });
 });
 
 module.exports = router;

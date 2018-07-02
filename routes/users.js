@@ -46,23 +46,63 @@ const getTemplateData = (data) => {
   return templateData;
 };
 
+const sendkFMessage = (userId, kfMessage, res) => {
+   accessTokenHelper.getAccessToken(token => {
+      if (token) {
+        request.post(`https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=${token}`, {
+          json: {
+            touser: userId,
+            msgtype: 'text',
+            text:
+            {
+                "content": kfMessage
+            }
+          }
+        }, (error, response, body) => {
+          const result = {
+            userId,
+            error,
+            body
+          };
+
+          if (error) {
+            res.send({
+              ...result,
+              message: 'Failed to push message'
+            });
+          }
+          else {
+            res.send({
+              ...result,
+              message: 'Message pushed successfully'
+            });
+          }
+        });
+      }
+    });
+};
+
 router.post('/bind', function (req, res, next) {
-  const user = req.body.user;
+  const email = req.body.Email;
+  const openId = req.body.OpenId;
+  // const code = req.body.Code;
 
   console.log(req.body);
+ 
+  if (!openId || !email) {
+    res.send('openid or email is required!');
+  }
+  const user = {};
+  user[openId] = email;
 
   if (userStore.has(user)) {
-    res.send({
-      message: `${user} is already bind`
-    });
+    sendkFMessage(openId, `You account has already binded to ${email}!` ,res);
   }
   else {
     userStore.append(user);
 
     userStore.flush((error) => {
-      res.send({
-        message: error ? `Failed to bind ${user}` : `Bind ${user} successfully`
-      });
+      sendkFMessage(openId, `Congcongratulations, Your account had been binded to ${email} successfully!` ,res);
     });
   }
 });
