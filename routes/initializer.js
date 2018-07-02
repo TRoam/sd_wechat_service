@@ -20,7 +20,7 @@ function getCustomizedMenu() {
         {
             "type": "view", 
             "name": "Create Sales Order", 
-            "url": `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${config.secret.appid}&redirect_uri=http://118.24.149.237:8080&response_type=code&scope=snsapi_base&state=create#wechat_redirect`
+            "url": `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${config.secret.appid}&redirect_uri=${encodeURIComponent(config.uiServer)}&response_type=code&scope=snsapi_base&state=create#wechat_redirect`
         },
         {
             "name": "More", 
@@ -28,7 +28,7 @@ function getCustomizedMenu() {
                 {
                     "type": "view", 
                     "name": "Authorization Bing", 
-                    "url": `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${config.secret.appid}&redirect_uri=http://118.24.149.237:8080&response_type=code&scope=snsapi_base&state=user#wechat_redirect`
+                    "url": `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${config.secret.appid}&redirect_uri=${encodeURIComponent(config.uiServer)}&response_type=code&scope=snsapi_base&state=user#wechat_redirect`
                 }, 
                 {
                     "type": "click", 

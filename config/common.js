@@ -7,8 +7,8 @@ module.exports = {
     secret: '107f52be408d8de3b4d8d0a9f41d8513',
     encodingAESKey: 'qKZrS7ClCedpfB8ovtIXaOUlnUyd4JhDH44v3STxPyq'
   },
-  server: 'http://118.24.149.237',
-  uiServer: home ? 'http://10.130.231.80' : 'http://118.24.149.237:8080',
+  server: 'http://www.chengdusa.com',
+  uiServer: home ? 'http://10.130.231.80' : 'http://www.chengdusa.com:8080',
   templates: {
     Featured: '04zVisr--LdimrcGC6qNbExIkUyrn0e3tAYQRbrtvF8',
     NewBlog: 'ZKAOh-mi-r-SV7cHjxJQEyt1UUWgXD8VRyAMvV_KJCQ',
