@@ -26,7 +26,7 @@ function getCustomizedMenu() {
             "name": "More", 
             "sub_button": [
                 {
-                    "type": "cilck", 
+                    "type": "click",
                     "name": "My Profile", 
                     "key": `profile`
                 },
