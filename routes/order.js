@@ -58,13 +58,14 @@ router.post('/create', function (req, res, next) {
   if (orderData) {
     const order = {}
     order[id] = orderData;
+    console.log(orderData);
+    orderStore.append(order);
+
+    orderStore.flush((error) => {
+      sendkFMessage(openId, `Sales order ${id} had been created successfully!` ,res);
+    });
+
   }
-  orderStore.append(user);
-
-  orderStore.flush((error) => {
-    sendkFMessage(openId, `Sales order <stong>${id}</stong> had been created successfully!` ,res);
-  });
-
 });
 
 module.exports = router;
