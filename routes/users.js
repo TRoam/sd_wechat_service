@@ -101,6 +101,22 @@ router.post('/bind', function (req, res, next) {
   });
 });
 
+router.post('/check', function (req, res, next) {
+  const openId = req.body.OpenId;
+
+  const email = userStore.has(openId);
+
+  if (!!email) {
+    res.send({
+      emial
+    });
+  } else {
+    res.send({
+      error: 'No Authorization' 
+    });
+  }
+});
+
 router.post('/push', function (req, res, next) {
   const { user, url, template, data, uuid } = req.body;
 
