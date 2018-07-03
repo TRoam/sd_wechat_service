@@ -48,15 +48,17 @@ const createOrderId = () => {
 
 router.post('/create', function (req, res, next) {
   const openId = req.body.OpenId;
-  const orderData = req.body.data;
+  const orderData = req.body.Data;
   const id = createOrderId();
 
   if (!openId) {
     res.send('openID is required!');
   }
-  const order = {}
-  order[id] = orderData;
 
+  if (orderData) {
+    const order = {}
+    order[id] = orderData;
+  }
   orderStore.append(user);
 
   orderStore.flush((error) => {
