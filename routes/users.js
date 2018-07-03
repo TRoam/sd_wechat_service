@@ -108,7 +108,7 @@ router.post('/check', function (req, res, next) {
 
   if (!!email) {
     res.send({
-      emial
+      email
     });
   } else {
     res.send({
