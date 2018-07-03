@@ -28,7 +28,7 @@ function getCustomizedMenu() {
                 {
                     "type": "cilck", 
                     "name": "My Profile", 
-                    "url": `profile`
+                    "key": `profile`
                 },
                 {
                     "type": "click", 
