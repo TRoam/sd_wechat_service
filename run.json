@@ -3,6 +3,7 @@
         "name"        : "sd_wechat_service",
         "script"      : "bin/www",
         "watch"       : "../",
+        "ignore_watch" : ["../data/*"],
         "log_date_format"  : "YYYY-MM-DD HH:mm Z"
       }]
 }
