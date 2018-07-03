@@ -94,17 +94,11 @@ router.post('/bind', function (req, res, next) {
   }
   const user = {};
   user[openId] = email;
+  userStore.append(user);
 
-  if (userStore.has(user)) {
-    sendkFMessage(openId, `You account has already binded to ${email}!` ,res);
-  }
-  else {
-    userStore.append(user);
-
-    userStore.flush((error) => {
-      sendkFMessage(openId, `Congcongratulations, Your account had been binded to ${email} successfully!` ,res);
-    });
-  }
+  userStore.flush((error) => {
+    sendkFMessage(openId, `Congcongratulations, Your account had been bound to ${email} successfully!` ,res);
+  });
 });
 
 router.post('/push', function (req, res, next) {
