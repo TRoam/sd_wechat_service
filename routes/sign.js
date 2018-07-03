@@ -22,8 +22,8 @@ router.get("/jsapi-ticket", function (req, res, next) {
   });
 });
 
-router.get("/wx-config", function(req, res, next) {
-  const url = req.param('url');
+router.post("/wx-config", function(req, res, next) {
+  const url = req.body.Url;
   sdkSignatrue.getSignature(url, config => {
      res.send(config);
   });
