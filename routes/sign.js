@@ -1,10 +1,10 @@
 const express = require('express');
-const request = require('request');
 const router = express.Router();
 
 // token
 const accessTokenHelper = require('../lib/token/access-token');
 const jsTicketHelper = require('../lib/token/jsapi-ticket');
+const sdkSignatrue = require('../lib/token/sdk-signature');
 
 router.get("/access-token", function (req, res, next) {
   accessTokenHelper.getAccessToken(token => {
@@ -19,6 +19,13 @@ router.get("/jsapi-ticket", function (req, res, next) {
     res.send({
       ticket
     });
+  });
+});
+
+router.get("/wx-config", function(req, res, next) {
+  const url = req.param('url');
+  sdkSignatrue.getSignature(url, config => {
+     res.send(config);
   });
 });
 
