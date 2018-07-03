@@ -48,12 +48,15 @@ const createOrderId = () => {
 
 router.post('/create', function (req, res, next) {
   const openId = req.body.OpenId;
-  const orderData = req.body.Data;
+  const orderData = req.body;
   const id = createOrderId();
-
+  delete orderData.OpenId;
+	console.log(req.body);
   if (!openId) {
     res.send('openID is required!');
   }
+  
+ console.log(orderData);
 
   if (orderData) {
     const order = {}
@@ -65,7 +68,8 @@ router.post('/create', function (req, res, next) {
       sendkFMessage(openId, `Sales order ${id} had been created successfully!` ,res);
     });
 
-  }
+  } 
+  res.send('error');
 });
 
 module.exports = router;
