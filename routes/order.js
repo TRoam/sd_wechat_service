@@ -3,6 +3,7 @@ const request = require('request');
 
 const router = express.Router();
 
+const orderStore = require('../lib/store').order;
 const accessTokenHelper = require('../lib/token/access-token');
 
 const sendkFMessage = (userId, kfMessage, res) => {
@@ -41,14 +42,29 @@ const sendkFMessage = (userId, kfMessage, res) => {
     });
 };
 
+const createOrderId = () => {
+   return '3' + Math.random().toString().substr(2,6);
+};
+
 router.post('/create', function (req, res, next) {
   const openId = req.body.OpenId;
+  const orderData = req.body.Data;
+  const id = createOrderId();
 
   if (!openId) {
-      res.send('openID is required!');
+    res.send('openID is required!');
   }
 
-  sendkFMessage(openId, "Sales Order <a href='http://google.com'>3002313</a> had been created!", res);
+  if (orderData) {
+    const order = {}
+    order[id] = orderData;
+  }
+  orderStore.append(user);
+
+  orderStore.flush((error) => {
+    sendkFMessage(openId, `Sales order <stong>${id}</stong> had been created successfully!` ,res);
+  });
+
 });
 
 module.exports = router;

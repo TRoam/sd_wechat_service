@@ -26,19 +26,19 @@ function getCustomizedMenu() {
             "name": "More", 
             "sub_button": [
                 {
-                    "type": "view", 
-                    "name": "Authorization Bing", 
-                    "url": `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${config.secret.appid}&redirect_uri=${encodeURIComponent(config.uiServer)}&response_type=code&scope=snsapi_base&state=user#wechat_redirect`
-                }, 
+                    "type": "cilck", 
+                    "name": "My Profile", 
+                    "url": `profile`
+                },
                 {
                     "type": "click", 
                     "name": "Display Order", 
                     "key": "display"
                 },
                 {
-                  "type": "click",
-                  "name": "Change Order",
-                  "key": "change"
+                  "type": "view",
+                  "name": "SAP",
+                  "url": "http://www.sap.com"
                 }
             ]
         }

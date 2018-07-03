@@ -7,20 +7,19 @@ const config = require('../config');
 
 const handleEvent = (msg) => {
   const { EventKey, FromUserName } = msg;
+  const auth = message.getAuthorizationCheck(FromUserName);
+
+  if (auth) {
+    return auth;
+  }
 
   switch (EventKey) {
-    case 'featured':
-      return message.getHotTopics(FromUserName);
-      break;
-    case 'products':
-      return message.getHotBlogs(FromUserName);
-      break;
     case 'profile':
       return message.getProfile(FromUserName);
       break;
-    case 'new':
+    case 'display':
       // pull hots blogs
-      return message.getHotBlogs(FromUserName);
+      return message.getDisplaySalesOrder(FromUserName);
       break;
     case 'support':
       // go to community to ask question
@@ -32,18 +31,18 @@ const handleEvent = (msg) => {
 const handleText = (msg) => {
   const { Content, FromUserName } = msg;
   const content = (Content || '').toUpperCase();
+  const auth = message.getAuthorizationCheck(FromUserName);
 
-  if (content.indexOf('NEWS') >= 0) {
-    return message.getHotTopics(FromUserName);
+  if (auth) {
+    return auth;
   }
-  else if (content.indexOf('BLOG') >= 0) {
-    return message.getHotBlogs(FromUserName);
-  }
-  else if (content.indexOf('PROFILE') >= 0) {
+
+  if (content.indexOf('PROFILE') >= 0) {
     return message.getProfile(FromUserName);;
   }
-  else if (content.indexOf('TOPIC') >= 0) {
-    return message.getHotTopics(FromUserName);
+  
+  if (/^\d+$/.test(content)) {
+    return message.getSalesOrder(content);
   }
 
   return '';
